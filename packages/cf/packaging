@@ -1,0 +1,7 @@
+#!/bin/basj
+set -eu
+
+# $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
+
+mkdir -p ${BOSH_INSTALL_TARGET}/bin
+cp cf/cf ${BOSH_INSTALL_TARGET}/bin/cf
