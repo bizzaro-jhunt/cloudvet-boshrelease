@@ -1,1 +1,13 @@
---- {}
+---
+cf/cf:
+  object_id: b651141e-5a08-4f03-8bf3-1d2755e35c65
+  sha: 1e5ac677464a1ef554f777f71e47f72053d57d1f
+  size: 21505302
+cloudvet/cloudvet:
+  object_id: 5c991775-e732-4d4c-8d02-3890e22fa609
+  sha: be2bb78ad0a856df5274df65b93d8780596f4785
+  size: 7633710
+jq/jq-1.5-linux64:
+  object_id: 0da2aa42-13ad-4301-89b6-3f172b09f506
+  sha: d8e36831c3c94bb58be34dd544f44a6c6cb88568
+  size: 3027945
