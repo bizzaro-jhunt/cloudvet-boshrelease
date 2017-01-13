@@ -3,6 +3,7 @@ name: tests
 packages:
   - cloudvet
   - cf
+  - jq
 
 templates:
   bin/run: bin/run
@@ -22,12 +23,27 @@ properties:
   cf.domain:
     description: Which Cloud Foundry domain to map when pushing the test app.
 
+  cf.skip_ssl_verify:
+    description: Whether or not to verify Cloud Foundry SSL/TLS certificates.
+    default: false
+
   test.redis.service:
     description: The name of the Redis service offering (in the CF marketplace) to provision and test.
+    default: ''
   test.redis.plan:
     description: The name of the Redis service plan (in the CF marketplace) to provision and test.
+    default: ''
 
   test.mysql.service:
     description: The name of the MySQL service offering (in the CF marketplace) to provision and test.
+    default: ''
   test.mysql.plan:
     description: The name of the MySQL service plan (in the CF marketplace) to provision and test.
+    default: ''
+
+  test.mongo.service:
+    description: The name of the MongoDB service offering (in the CF marketplace) to provision and test.
+    default: ''
+  test.mongo.plan:
+    description: The name of the MongoDB service plan (in the CF marketplace) to provision and test.
+    default: ''
