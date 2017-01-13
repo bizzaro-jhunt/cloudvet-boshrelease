@@ -9,6 +9,10 @@ templates:
   bin/run: bin/run
 
 properties:
+  debug:
+    description: Turn on extra debugging, for tracing the execution of the errand; not recommended for most.
+    default: false
+
   cf.username:
     description: The username to authenticate to Cloud Foundry as, for pushing the test app.  This account does NOT need administrative privileges.
   cf.password:

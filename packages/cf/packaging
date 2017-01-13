@@ -1,7 +1,7 @@
-#!/bin/basj
+#!/bin/bash
 set -eu
 
 # $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
-
 mkdir -p ${BOSH_INSTALL_TARGET}/bin
 cp cf/cf ${BOSH_INSTALL_TARGET}/bin/cf
+chmod 0755 ${BOSH_INSTALL_TARGET}/bin/cf

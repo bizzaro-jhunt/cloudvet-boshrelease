@@ -1,0 +1,50 @@
+name: cloudvet
+director_uuid: <%= `bosh status --uuid` %>
+
+releases:
+  - { name: cloudvet, version: latest }
+
+stemcells:
+- alias: default
+  os: ubuntu-trusty
+  version: latest
+
+update:
+  canaries: 1
+  max_in_flight: 10
+  canary_watch_time: 1000-30000
+  update_watch_time: 1000-30000
+
+instance_groups:
+  - name: vet
+    lifecycle: errand
+    instances: 1
+    azs: [z1]
+    networks:
+      - name: default
+
+    vm_type: default
+    stemcell: default
+
+    jobs:
+      - name:    tests
+        release: cloudvet
+        properties:
+          cf:
+            api_url:  https://api.system.10.244.0.34.netip.cc
+            skip_ssl_verify: true
+
+            username: admin
+            password: SECRET-PASSWORD-CHANGE-ME
+
+            domain:   run.10.244.0.34.netip.cc
+            org:      system
+            space:    cloudvet
+
+          test:
+            redis:
+              service: redis
+              plan:    small-standalone
+            mongo:
+              service: mongo
+              plan:    small-standalone
